@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function substitutePdfVariables() {
+        function getParameterByName(name) {
+          var match = RegExp("[?&]" + name + "=([^&]*)").exec(
+            window.location.search
+          );
+          return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+        }
+
+        function substitute(name) {
+          var value = getParameterByName(name);
+          var elements = document.getElementsByClassName(name);
+
+          if (name == "page" && parseInt(value) == 1) {
+            document.getElementById("main").style.display = "none";
+          }
+
+          Array.prototype.forEach.call(elements, function (element) {
+            element.textContent = value;
+          });
+        }
+
+        [
+          "frompage",
+          "topage",
+          "page",
+          "webpage",
+          "section",
+          "subsection",
+          "subsubsection",
+        ].forEach(function (param) {
+          substitute(param);
+        });
+      }
+    </script>
+    <style>
+      body {
+        position: absolute;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body onload="substitutePdfVariables()">
+    <style>
+      * {
+        font-family: Arial, sans-serif;
+        font-weight: 100;
+        width: 95%;
+      }
+    </style>
+    <div id="main" style="padding-left: 30px; padding-right: 30px">
+      <table style="width: 100%; border-spacing: 0">
+        <tr>
+          <th style="background-color: #0b2f22; height: 3px"></th>
+        </tr>
+
+        <tr>
+          <table style="width: 100%; height: 30px; border-spacing: 0">
+            <tr>
+              <th style="width: 70%; text-align: left">
+                PAGE | <span class="page"></span>
+              </th>
+              <th
+                style="
+                  width: 30%;
+                  background-color: #0b2f22;
+                  text-align: right;
+                  padding: 10px;
+                  color: #a4c0bb;
+                "
+              >
+                Overview
+              </th>
+            </tr>
+          </table>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+        <Placemark>
+            <ExtendedData>
+                <Data name="name">
+                    <value>first</value>
+                </Data>
+            </ExtendedData>
+            <LineString>
+                <coordinates>8.694305419921875,50.44176389056172 8.704605102539062,50.37918887985136</coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark>
+            <ExtendedData>
+                <Data name="name">
+                    <value>second</value>
+                </Data>
+            </ExtendedData>
+            <LineString>
+                <coordinates>8.806915283203125,50.417706358529024 8.855667114257812,50.419018902737065</coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark>
+            <ExtendedData>
+                <Data name="name">
+                    <value>third</value>
+                </Data>
+            </ExtendedData>
+            <LineString>
+                <coordinates>8.597488403320312,50.52826981892778 8.636627197265625,50.52477769947372</coordinates>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>

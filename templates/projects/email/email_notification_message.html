@@ -1,0 +1,32 @@
+{% load i18n %}{{status}} Notification
+<br />
+Mission Name:{{name}}
+<br />
+Mission Type: {{type}}
+<br />
+Asignees: {{assignees|join:", " }}
+<br />
+Start Date: {{ start_date|date:"M d, Y" }}
+<br />
+Covered Area:
+<table style="border: 1px solid black; border-collapse: collapse;">
+  <thead>
+    <tr >
+      <th style="border: 1px solid black; border-collapse: collapse;">ID</th>
+      <th style="border: 1px solid black; border-collapse: collapse;">Area</th>
+      <th style="border: 1px solid black; border-collapse: collapse;">Priority</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for covered_area in covered_areas %}
+    <tr>
+      <td style="border: 1px solid black; border-collapse: collapse;">{{ covered_area.id }}</td>
+      <td style="border: 1px solid black; border-collapse: collapse;">{{ covered_area.properties.intersecting_data.area | add:covered_area.properties.intersecting_data.count }}</td>
+      <td style="border: 1px solid black; border-collapse: collapse;">{{ covered_area.properties.PRIORITY }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<br />
+If you experience any issues, reach out to us at info@dronodat.de. Best, The
+DronoDat team

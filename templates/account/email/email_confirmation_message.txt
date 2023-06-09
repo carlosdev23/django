@@ -1,0 +1,16 @@
+{% load i18n %}
+{% block content %}
+{% autoescape off %}
+Hello {{user.name}},
+Thank you for joining DronoSpace.
+
+We’d like to confirm that your account was created successfully. To access DronoSpace click the link below.
+
+{{activate_url}}
+
+If you experience any issues logging into your account, reach out to us at info@dronodat.de.
+
+Best,
+The DronoDat team
+{% endautoescape %}
+{% endblock %}
